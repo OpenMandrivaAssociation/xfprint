@@ -1,8 +1,8 @@
 
 %define lib_major       0
 %define lib_name        %mklibname xfprint %{lib_major}
-%define version		4.4.0
-%define release		2
+%define version		4.4.1
+%define release		1
 %define __libtoolize /bin/true
 
 Summary: 	Print dialog and printer manager for Xfce

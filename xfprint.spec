@@ -22,7 +22,10 @@ Requires:	%{libname} = %{version}-%{release}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-Xfprint contains a print dialog and a printer manager for Xfce.
+The printing helper is a graphical frontend for printing, 
+a printer management, and a job queue management. It doesn't 
+let you configure printers but only use printing systems that 
+have already been configured properly.
 
 %package -n %{libname}
 Summary:	Libraries for the Xfce Printer Manager

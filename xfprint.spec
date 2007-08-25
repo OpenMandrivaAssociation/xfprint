@@ -4,7 +4,7 @@
 Summary:	Print dialog and printer manager for Xfce
 Name:		xfprint
 Version:	4.4.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	BSD
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
@@ -63,8 +63,8 @@ chrpath -d %{buildroot}/%{_libdir}/xfce4/xfprint-plugins/*
 
 %find_lang %{name}
 
-desktop-file-install --vendor="" \
-    --add-category="X-MandrivaLinux-System-Configuration-Printing" \
+desktop-file-install \
+    --add-only-show-in="XFCE" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %clean

@@ -1,10 +1,11 @@
 %define major 0
-%define libname %mklibname xfprint %{major}
+%define libname %mklibname %{name} %{major}
+%define develname %mklibname %{name} -d
 
 Summary:	Print dialog and printer manager for Xfce
 Name:		xfprint
 Version:	4.4.1
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	BSD
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
@@ -34,13 +35,16 @@ Group:		Graphical desktop/Xfce
 %description -n %{libname}
 Libraries for the Xfce Printer Manager.
 
-%package -n %{libname}-devel
+%package -n %{develname}
 Summary:	Libraries and header files for the Xfce Printer Manager
 Group:		Development/Other
 Requires:	%{libname} = %{version}-%{release}
-Provides:	xfprint-devel
+Provides:	xfprint-devel = %{version}-%{release}
+Provides:	libxfprint-devel = %{version}-%{release}
+Provides:	%mklibname %{name} 0 -d
+Obsoletes:	%mklibname %{name} 0 -d
 
-%description -n %{libname}-devel
+%description -n %{develname}
 Libraries and header files for the Xfce Printer Manager.
 
 %prep
@@ -95,7 +99,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_libdir}/pkgconfig/xfprint-1.0.pc
 %{_libdir}/libxfprint.*a

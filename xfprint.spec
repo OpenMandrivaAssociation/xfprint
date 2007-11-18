@@ -4,18 +4,18 @@
 
 Summary:	Print dialog and printer manager for Xfce
 Name:		xfprint
-Version:	4.4.1
-Release:	%mkrel 4
+Version:	4.4.2
+Release:	%mkrel 1
 License:	BSD
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0: 	%{name}-%{version}.tar.bz2
-Requires:	a2ps 
+Requires:	a2ps
 BuildRequires:	glib2-devel >= 2.0.6
 BuildRequires:	libxfcegui4-devel >= %{version}
 BuildRequires:	xfce-mcs-manager-devel >= %{version}
 BuildRequires:	a2ps
-Buildrequires:	cups-devel 
+Buildrequires:	cups-devel
 BuildRequires:	cups-common
 BuildRequires:	chrpath
 BuildRequires:	desktop-file-utils
@@ -23,9 +23,9 @@ Requires:	%{libname} = %{version}-%{release}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-The printing helper is a graphical frontend for printing, 
-a printer management, and a job queue management. It doesn't 
-let you configure printers but only use printing systems that 
+The printing helper is a graphical frontend for printing,
+a printer management, and a job queue management. It doesn't
+let you configure printers but only use printing systems that
 have already been configured properly.
 
 %package -n %{libname}
@@ -56,10 +56,10 @@ Libraries and header files for the Xfce Printer Manager.
 
 %install
 rm -rf %{buildroot}
-%makeinstall_std 
+%makeinstall_std
 
 # remove unneeded devel files
-rm -f %{buildroot}%{_libdir}/xfce4/xfprint-plugins/*.*a 
+rm -f %{buildroot}%{_libdir}/xfce4/xfprint-plugins/*.*a
 rm -f %{buildroot}%{_libdir}/xfce4/mcs-plugins/*.*a
 
 # disable rpath
@@ -88,10 +88,10 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc README ChangeLog COPYING AUTHORS
-%{_bindir}/* 
+%{_bindir}/*
 %{_libdir}/xfce4/*
 %{_datadir}/applications/*.desktop
-%{_iconsdir}/hicolor/* 
+%{_iconsdir}/hicolor/*
 %{_datadir}/xfce4/doc/*
 %{_datadir}/gtk-doc/html/
 

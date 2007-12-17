@@ -20,7 +20,6 @@ BuildRequires:	cups-common
 BuildRequires:	chrpath
 BuildRequires:	desktop-file-utils
 Requires:	%{libname} = %{version}-%{release}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 The printing helper is a graphical frontend for printing,

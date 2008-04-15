@@ -5,7 +5,7 @@
 Summary:	Print dialog and printer manager for Xfce
 Name:		xfprint
 Version:	4.4.2
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	BSD
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
@@ -87,7 +87,7 @@ rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
-%doc README ChangeLog COPYING AUTHORS
+%doc README ChangeLog AUTHORS
 %{_bindir}/*
 %{_libdir}/xfce4/*
 %{_datadir}/applications/*.desktop

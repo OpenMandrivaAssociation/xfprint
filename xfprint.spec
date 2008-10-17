@@ -4,21 +4,20 @@
 
 Summary:	Print dialog and printer manager for Xfce
 Name:		xfprint
-Version:	4.4.2
-Release:	%mkrel 4
-License:	BSD
+Version:	4.5.91
+Release:	%mkrel 1
+License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0: 	%{name}-%{version}.tar.bz2
-Requires:	a2ps
 BuildRequires:	glib2-devel >= 2.0.6
 BuildRequires:	libxfcegui4-devel >= %{version}
-BuildRequires:	xfce-mcs-manager-devel >= %{version}
+BuildRequires:	xfconf-devel
 BuildRequires:	a2ps
 Buildrequires:	cups-devel
-BuildRequires:	cups-common
 BuildRequires:	chrpath
 BuildRequires:	desktop-file-utils
+Requires:	a2ps
 Requires:	%{libname} = %{version}-%{release}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
@@ -39,8 +38,8 @@ Libraries for the Xfce Printer Manager.
 Summary:	Libraries and header files for the Xfce Printer Manager
 Group:		Development/Other
 Requires:	%{libname} = %{version}-%{release}
-Provides:	xfprint-devel = %{version}-%{release}
-Provides:	libxfprint-devel = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
+Provides:	lib%{name}-devel = %{version}-%{release}
 Provides:	%mklibname %{name} 0 -d
 Obsoletes:	%mklibname %{name} 0 -d
 
@@ -51,19 +50,16 @@ Libraries and header files for the Xfce Printer Manager.
 %setup -q
 
 %configure2_5x \
-	--enable-letter \
-	--enable-cups
+	--disable-letter \
+	--enable-cups \
+	--disable-static
 
 %install
 rm -rf %{buildroot}
 %makeinstall_std
 
-# remove unneeded devel files
-rm -f %{buildroot}%{_libdir}/xfce4/xfprint-plugins/*.*a
-rm -f %{buildroot}%{_libdir}/xfce4/mcs-plugins/*.*a
-
 # disable rpath
-chrpath -d %{buildroot}/%{_libdir}/xfce4/xfprint-plugins/*
+chrpath -d %{buildroot}/%{_libdir}/xfce4/xfprint-plugins/*.so
 
 %find_lang %{name}
 

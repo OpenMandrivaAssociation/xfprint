@@ -9,7 +9,7 @@ Release:	%mkrel 2
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
-Source0: 	%{name}-%{version}.tar.bz2
+Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
 BuildRequires:	glib2-devel >= 2.0.6
 BuildRequires:	libxfcegui4-devel >= %{version}
 BuildRequires:	xfconf-devel

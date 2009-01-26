@@ -14,7 +14,7 @@ URL:		http://www.xfce.org
 Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
 BuildRequires:	glib2-devel >= 2.0.6
 BuildRequires:	libxfcegui4-devel >= %{version}
-BuildRequires:	xfconf-devel
+BuildRequires:	xfconf-devel >= %{version}
 BuildRequires:	a2ps
 Buildrequires:	cups-devel
 BuildRequires:	chrpath

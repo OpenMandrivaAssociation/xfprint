@@ -6,15 +6,15 @@
 
 Summary:	Print dialog and printer manager for Xfce
 Name:		xfprint
-Version:	4.6.0
-Release:	%mkrel 2
+Version:	4.6.1
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
 BuildRequires:	glib2-devel >= 2.0.6
-BuildRequires:	libxfcegui4-devel >= %{version}
-BuildRequires:	xfconf-devel >= %{version}
+BuildRequires:	libxfcegui4-devel >= 4.6.0
+BuildRequires:	xfconf-devel >= 4.6.0
 BuildRequires:	a2ps
 Buildrequires:	cups-devel
 BuildRequires:	chrpath

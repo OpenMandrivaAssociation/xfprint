@@ -7,7 +7,7 @@
 Summary:	Print dialog and printer manager for Xfce
 Name:		xfprint
 Version:	4.6.1
-Release:	%mkrel 4
+Release:	5
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
@@ -21,7 +21,6 @@ BuildRequires:	chrpath
 BuildRequires:	desktop-file-utils
 Requires:	a2ps
 Requires:	%{libname} = %{version}-%{release}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 The printing helper is a graphical frontend for printing,
@@ -57,42 +56,18 @@ Libraries and header files for the Xfce Printer Manager.
 	--disable-static
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 # disable rpath
 chrpath -d %{buildroot}/%{_libdir}/xfce4/xfprint-plugins/*.so
 
-%find_lang %{name}
+%find_lang %{name} %{name}.lang
 
 desktop-file-install \
     --add-only-show-in="XFCE" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%update_icon_cache hicolor
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%clean_icon_cache hicolor
-%endif
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc README ChangeLog AUTHORS
 %{_bindir}/*
 %{_libdir}/xfce4/*
@@ -102,11 +77,9 @@ rm -rf %{buildroot}
 %{_datadir}/gtk-doc/html/
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %{_libdir}/pkgconfig/xfprint-1.0.pc
 %{_libdir}/libxfprint.*a
 %{_libdir}/libxfprint.so

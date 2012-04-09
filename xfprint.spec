@@ -50,6 +50,7 @@ Libraries and header files for the Xfce Printer Manager.
 %prep
 %setup -q
 
+export LIBS="-lX11"
 %configure2_5x \
 	--disable-letter \
 	--enable-cups \
@@ -81,7 +82,6 @@ desktop-file-install \
 
 %files -n %{develname}
 %{_libdir}/pkgconfig/xfprint-1.0.pc
-%{_libdir}/libxfprint.*a
 %{_libdir}/libxfprint.so
 %dir %{_includedir}/xfce4/libxfprint
 %{_includedir}/xfce4/libxfprint/*

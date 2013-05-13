@@ -13,7 +13,7 @@ Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
 BuildRequires:	glib2-devel >= 2.0.6
-BuildRequires:	libxfcegui4-devel >= 4.6.0
+BuildRequires:	pkgconfig(libxfcegui4-1.0) >= 4.6.0
 BuildRequires:	xfconf-devel >= 4.6.0
 BuildRequires:	a2ps
 Buildrequires:	cups-devel

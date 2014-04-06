@@ -12,6 +12,7 @@ License:	GPLv2+
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
 Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
+Patch0:		xfprint-4.6.1-cups-1.6.patch
 BuildRequires:	a2ps
 BuildRequires:	chrpath
 BuildRequires:	desktop-file-utils
@@ -69,6 +70,7 @@ Libraries and header files for the Xfce Printer Manager.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 export LIBS="-lX11"
